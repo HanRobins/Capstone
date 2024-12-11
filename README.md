@@ -1,8 +1,8 @@
 # Mural Link
-https://app.mural.co/t/savvycoders6775/m/savvycoders6775/1732664723632/990b5388be06ca8ffd090925dd48c859f0831673?sender=u1f10e10742dfacc2d9332059
+https://app.mural.co/t/savvycoders6775/m/savvycoders6775/1732664723632/4d116361d8adce0c1441f2aec382a148b53c5d25?sender=u1f10e10742dfacc2d9332059
 
 
-# Sorted File W SWAT
+#  Idea Proposal File W SWAT
 https://docs.google.com/document/d/1KSUGu6WpWFFjjEao74AI-FX0TMC-rF9LCdUdAWQFocg/edit?usp=sharing
 
 ## Wire frames and Flow Charts are in Capstone Components
