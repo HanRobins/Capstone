@@ -5,13 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Uprise & Design</title>
   <link rel="stylesheet" href="styleC.css">
+  <link rel="stylesheet" href="footer-header.css">
   <script src="https://kit.fontawesome.com/37a4008031.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Chewy&family=DM+Serif+Text:ital@0;1&family=Hanalei+Fill&family=Mogra&display=swap" rel="stylesheet">
 </head>
 <body>
   <!--HEADER DEFINED AKA NAVBAR CODING-->
   <header class="header">
 
-    <a href="#" class="Logo">Uprise & Design</a>
+    <a href="#" class="Logo mogra-regular">Uprise & Design</a>
     <input type="checkbox" id="check">
     <label  for="check" class="icons">
       <i class="fa-solid fa-bars fa-2x" id="menu-icon"></i>
@@ -20,7 +24,7 @@
 
     <nav class="navbar">
       <a href="HomePage.html" style="--i:0;" >Home</a>
-      <a href="#" style="--i:1;" >ArtGoals</a>
+      <a href="#" style="--i:1;" >Art Tracker</a>
       <a href="#" style="--i:2;" >Discussions</a>
       <a href="ContactUs.html" style="--i:3;" >Contact Us</a>
       <a href="AboutMe.html" style="--i:4;" >About</a>
@@ -29,17 +33,64 @@
   </header>
 
   <!--Figuring out body-->
-  <section>
-    <div class="heading">
-      <h1>CONTACT US</h1>
-    </div>
-
-    <div class="information">
-      <h3>FORM COMING SOON!</h3>
-    </div>
+  <main class="container">
 
 
-  </section>
+
+
+      <h1 class="heading mogra-regular">Uprise & Design</h1>
+      <h3 class="heading">Contact Creator</h3>
+
+
+
+    <form id="contact-us-form" action="" method="post" class="dm-serif-text-regular">
+      <div class="main-info">
+        <div class="user-input-box">
+          <label for="first-name" class="dm-serif-text-regular">First Name:</label>
+          <input type="text" name="first-name" id="first-name"
+          placeholder="Enter First Name" required/>
+
+          <label for="last-name" class="dm-serif-text-regular">Last Name:</label>
+          <input type="text" name="last-name" id="last-name"
+          placeholder="Enter Last Name" required/>
+
+          <label for="email">Email:</label>
+          <input type="email" name="email" id="email"
+          placeholder="Example: emailme@email.com" required/>
+
+          <label for="P-number">Phone Number:</label>
+          <input type="tel" name="P-number" id="P-number"
+          placeholder=" Example: xxx-xxxx-xxxx"/>
+            <div class="drop-down">
+              <label for="marketing">How did you hear about me?</label>
+                <select name="marketing" id="marketing">
+                  <optgroup label="Online">
+                    <option value="social">Social Media (FB, Twitter, LinkedIn)</option>
+                    <option value="github">Online Portfolio (GitHub)</option>
+                    <option value="search">Search Engine</option>
+                  </optgroup>
+                </select>
+            </div>
+            <div class="message">
+              <label for="contact-message">Reason For Contact:</label>
+                <textarea
+                name="contact-message"
+                id="contact-message"
+                placeholder="I contacted you for..."
+                rows="10" cols="80">
+                </textarea>
+
+            </div>
+              <div class="form-submit-btn">
+                <input type="submit" value="Submit" id="submit-button"/>
+              </div>
+        </div>
+      </div>
+    </form>
+
+
+
+  </main>
 
 
   <footer>

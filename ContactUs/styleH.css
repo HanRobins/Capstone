@@ -1,3 +1,9 @@
+.mogra-regular {
+  font-family: "Mogra", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 
 *{
   margin:0;
@@ -11,6 +17,7 @@ body{
   min-height: 100vh;
   background: linear-gradient(to bottom, rgb(219, 34, 136), rgb(240, 162, 111));
   scroll-behavior: smooth;
+  position: relative;
 }
 
 .header {
@@ -152,91 +159,61 @@ body{
     opacity: 1;
     transition-delay: calc(.15s * var(--i));
   }
+  .back-image img{
+    display: block;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
 
+  }
+
+  .prompt-of-day img{
+    width: 70%;
+    height: auto;
+  }
 }
+
 
 /*BODY*/
+section{
 
-.self-portrait {
-  position: absolute;
+  background-image: url(pexels-daiangan-102127.jpg);
+  background-size: cover;
+  border-bottom: solid 20px black;
+  height: 80vh;
   display: flex;
-  width: 100vw;
-  height: 20vh;
-  border: solid red;
-}
-.back-image img{
-  display: block;
- background-repeat: no-repeat;
- background-size: contain;
-}
-
-.container {
-  position: relative;
-  width: 100%;
-}
-
-.overlay{
-  position: absolute;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  opacity: 0;
-  transition: .5s ease;
-  background-color: #ffffff25;
-  backdrop-filter: blur(50px);
+}
+
+section a{
+
   text-decoration: none;
-}
-
-.container:hover .overlay  {
-  opacity: 1;
-
-}
-
-.container .overlay h2 {
-  color: white;
-  font-size: 4rem;
-  font-weight: 600;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-}
-
-.container:hover .overlay  h2{
-  opacity: 1;
-  text-decoration: underline;
-}
-
-.prompt-of-day {
-
-
-  text-align: center;
-  position: relative;
-
-
-}
-
-.prompt-of-day img{
-  width: 40%;
-  height: auto;
-
-
-}
-
-.prompt-of-day h3{
-  font-weight: 600;
+  background-color: aliceblue;
   font-size: 2rem;
+  padding: 1rem;
+  border-radius: 10px;
+  border: solid 2px black;
+}
 
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding-bottom: 2em;
-  color: rgb(235, 154, 204);
-  text-shadow: 0 0 5px rgb(226, 119, 199);
+section h1{
+  text-decoration: none;
+  color: aliceblue;
+  font-size: 4rem;
+  padding-top: 6rem;
+  text-wrap: wrap;
+  text-align: center;
+}
+
+section h3{
+  text-decoration: none;
+  color: aliceblue;
+  font-size: 2.5rem;
+  padding: 2rem;
+  text-wrap: wrap;
+  text-align: center;
 }
 
 
@@ -260,7 +237,7 @@ footer{
   width: 100%;
   bottom: 0%;
   left: 0%;
-  position: fixed;
+  position: absolute;
   /* background-color: black; */
   background: linear-gradient(to left, red, rgb(56, 2, 2));
   padding: 1.2rem;
@@ -278,15 +255,27 @@ footer .help-button{
 footer .help-button i{
   color: aliceblue;
   text-shadow: 0 0 10px white;
+  border: 0.2rem solid rgb(235, 171, 224);
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
 }
+
+
 
 footer .help-button h6{
   color: antiquewhite;
   float: right;
   padding-left: 1rem;
   font-weight: 200;
-  font-size: 1rem;
+  font-size: 1.3rem;
+  text-align: center;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 8px;
 }
-
-
-
