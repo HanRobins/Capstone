@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Uprise & Design</title>
-  <link rel="stylesheet" href="styleC.css">
-  <link rel="stylesheet" href="footer-header.css">
+  <!-- <link rel="stylesheet" href="styleC.css"> -->
+  <link rel="stylesheet" href="uprise.css">
   <script src="https://kit.fontawesome.com/37a4008031.js" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Chewy&family=DM+Serif+Text:ital@0;1&family=Hanalei+Fill&family=Mogra&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Chewy&family=DM+Serif+Text:ital@0;1&family=Hanalei+Fill&family=Lexend:wght@100..900&family=Mogra&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="contact-body">
   <!--HEADER DEFINED AKA NAVBAR CODING-->
   <header class="header">
 
@@ -43,26 +43,26 @@
 
 
 
-    <form id="contact-us-form" action="" method="post" class="dm-serif-text-regular">
+    <form id="contact-us-form" action="" method="post" class="lexend-justify">
       <div class="main-info">
         <div class="user-input-box">
-          <label for="first-name" class="dm-serif-text-regular">First Name:</label>
+          <label for="first-name" class="lexend-justify">First Name:</label>
           <input type="text" name="first-name" id="first-name"
           placeholder="Enter First Name" required/>
 
-          <label for="last-name" class="dm-serif-text-regular">Last Name:</label>
+          <label for="last-name" class="lexend-justify">Last Name:</label>
           <input type="text" name="last-name" id="last-name"
           placeholder="Enter Last Name" required/>
 
-          <label for="email">Email:</label>
+          <label for="email" class="lexend-justify">Email:</label>
           <input type="email" name="email" id="email"
           placeholder="Example: emailme@email.com" required/>
 
-          <label for="P-number">Phone Number:</label>
+          <label for="P-number" class="lexend-justify">Phone Number:</label>
           <input type="tel" name="P-number" id="P-number"
           placeholder=" Example: xxx-xxxx-xxxx"/>
             <div class="drop-down">
-              <label for="marketing">How did you hear about me?</label>
+              <label for="marketing" class="lexend-justify">How did you hear about me?</label>
                 <select name="marketing" id="marketing">
                   <optgroup label="Online">
                     <option value="social">Social Media (FB, Twitter, LinkedIn)</option>
@@ -71,8 +71,8 @@
                   </optgroup>
                 </select>
             </div>
-            <div class="message">
-              <label for="contact-message">Reason For Contact:</label>
+            <div class="lexend-justify message">
+              <label for="contact-message" class="lexend-justify">Reason For Contact:</label>
                 <textarea
                 name="contact-message"
                 id="contact-message"
@@ -81,8 +81,8 @@
                 </textarea>
 
             </div>
-              <div class="form-submit-btn">
-                <input type="submit" value="Submit" id="submit-button"/>
+              <div class="lexend-justify form-submit-btn">
+                <input type="submit" value="Submit" id="submit-button" class="lexend-justify"/>
               </div>
         </div>
       </div>

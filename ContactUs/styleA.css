@@ -19,7 +19,7 @@ body{
   flex-direction: column;
 }
 
-.header {
+/* .header {
   position: fixed;
   top: 0;
   left: 0;
@@ -103,6 +103,7 @@ body{
 
 
 /*BREAK POINTS*/
+/*
 @media(max-width: 1200px){
   .header{
     padding: 1.3rem 5%;
@@ -160,11 +161,11 @@ body{
     transition-delay: calc(.15s * var(--i));
   }
 
-}
+} */
 
 
 
-/*ABOUT*/
+/* ABOUT
 .about-wrapper{
   height: 100vh;
   margin-top: 20vh;
@@ -424,7 +425,6 @@ footer .help-button i{
 footer .help-button h6{
   color: antiquewhite;
 
-  /* padding-left: 1rem; */
   font-weight: 200;
   font-size: 1.3rem;
   text-align: center;
@@ -432,4 +432,4 @@ footer .help-button h6{
   justify-content: center;
   align-items: center;
   margin: 5px 8px;
-}
+} */
