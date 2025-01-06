@@ -1,5 +1,5 @@
 import html from "html-literal";
-import selfImg from "../ContactUs/Image-Self.jpg";
+import selfImg from "../GraveYard/Image-Self.jpg";
 
 export default () => html`
   <div class="about-wrapper">

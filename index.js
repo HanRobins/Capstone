@@ -1,9 +1,8 @@
 import { nav, main, footer } from "./components";
-
 import * as store from "./store";
-
 import Navigo from "navigo";
 import { camelCase } from "lodash";
+import axios from "axios";
 
 const router = new Navigo("/");
 
@@ -13,25 +12,81 @@ function render(state = store.home) {
       ${main(state)}
       ${footer()}
     `;
-    router.updatePageLinks();
+
 }
 
 render();
 
-router
-    .on({
-      "/": () => render(),
+router.hooks({
+  before: (done, match) => {
+    const view = match?.data?.view ? camelCase(match.data.view) : "home";
 
-      ":view": (match) => {
-        // Change the :view data element to camel case and remove any dashes (support for multi-word views)
-        const view = match?.data?.view ? camelCase(match.data.view) : "home";
-        // Determine if the view name key exists in the store object
-        if (view in store) {
-          render(store[view]);
-        } else {
-          render(store.viewNotFound);
-          console.log(`View ${view} not defined`);
-        }
-      },
-    })
-    .resolve();
+    // Add a switch case statement to handle multiple routes
+    switch (view) {
+      case "home":
+
+
+        //axios call
+        axios
+          .get(`${process.env.WORDS_PROMPTS_URL}number=1`)
+          .then(response => {
+            // Storing retrieved data in state
+            // The dot chain variable access represents the following {storeFolder.stateFileViewName.objectAttribute}
+            store.home.prompt = response.data;
+            console.log(response.data);
+            done();
+          })
+          .catch((error) => {
+            console.log("It puked", error);
+            done();
+          });
+        break;
+      default:
+        done();
+    }
+  },
+  already: (match) => {
+    const view = match?.data?.view ? camelCase(match.data.view) : "home";
+
+    render(store[view]);
+  },
+  after: (match) => {
+    router.updatePageLinks();
+
+
+  }
+});
+
+router
+  .on({
+    "/": () => render(),
+
+    ":view": (match) => {
+      // Change the :view data element to camel case and remove any dashes (support for multi-word views)
+      const view = match?.data?.view ? camelCase(match.data.view) : "home";
+      // Determine if the view name key exists in the store object
+      if (view in store) {
+        render(store[view]);
+      } else {
+        render(store.viewNotFound);
+        console.log(`View ${view} not defined`);
+      }
+    },
+  })
+  .resolve();
+
+// !creating animation transitions
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    console.log(entry);
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    } else {
+      entry.target.classList.remove('show')
+    }
+  });
+});
+//getting hidden elements
+const hiddenItems = document.querySelectorAll('.hidden');
+//looping over hidden elements to eventually animate
+hiddenItems.forEach((el) => observer.observe(el));
