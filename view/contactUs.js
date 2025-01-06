@@ -1,8 +1,7 @@
 import html from "html-literal";
-import bgImg from "../ContactUs/ContactUsDrawing.png";
+import bgImg from "../GraveYard/ContactUsDrawing.png";
 export default () => html`
   <div class="contact-body">
-
     <main class="container">
       <h1 class="heading mogra-regular">Uprise & Design</h1>
       <h3 class="heading">Contact Creator</h3>
