@@ -3,6 +3,7 @@ import * as store from "./store";
 import Navigo from "navigo";
 import { camelCase } from "lodash";
 import axios from "axios";
+import { gsap } from "gsap";
 
 const router = new Navigo("/");
 
@@ -12,7 +13,11 @@ function render(state = store.home) {
       ${main(state)}
       ${footer()}
     `;
-
+  switch (state){
+    case store.home:
+      showSlides(1);
+      break;
+  }
 }
 
 router.hooks({
