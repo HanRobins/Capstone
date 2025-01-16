@@ -1,7 +1,7 @@
 // let slideIndex = 0;
 // showSlides();
 
-// function showSlides() {
+// export function showSlides() {
 //   let i;
 //   let slides = document.getElementsByClassName("mySlides");
 //   for (i = 0; i < slides.length; i++) {

@@ -4,6 +4,7 @@ import Navigo from "navigo";
 import { camelCase } from "lodash";
 import axios from "axios";
 import { gsap } from "gsap";
+// import { showSlides } from "./slideShow";
 
 const router = new Navigo("/");
 
@@ -13,11 +14,11 @@ function render(state = store.home) {
       ${main(state)}
       ${footer()}
     `;
-  switch (state){
-    case store.home:
-      showSlides(1);
-      break;
-  }
+  // switch (state){
+  //   case store.home:
+  //     showSlides(1);
+  //     break;
+  // }
 }
 
 router.hooks({
@@ -54,8 +55,15 @@ router.hooks({
     render(store[view]);
   },
   after: (match) => {
-    router.updatePageLinks();
+    // const view = match?.data?.view ? camelCase(match.data.view) : "home";
 
+    router.updatePageLinks();
+    // let slideIndex = 1;
+    // switch(view){
+
+    //   case "home":
+    //     showSlides(slideIndex);
+    // }
 
   }
 });
@@ -77,6 +85,11 @@ router
     },
   })
   .resolve();
+
+
+
+
+
 
 // !creating animation transitions
 // !im just working on it T-T

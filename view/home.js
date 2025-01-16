@@ -22,7 +22,7 @@ export default state => html`
         <div class="mySlides fade">
           <div class="numbertext">1 / 3</div>
           <img src=${promptImg2} style="width:100%" />
-          <div class="text">${state.prompt}</div>
+          <div class="text">${state.prompt[0]}</div>
         </div>
 
         <div class="mySlides fade">
