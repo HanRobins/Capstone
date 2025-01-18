@@ -9,6 +9,17 @@ export default () => html`
     <a id="hero-button" href="/artTracker" class="mogra-regular">INSPIRE</a>
   </div>
 
+  <table id="pizzas">
+    <tr>
+      <th>Art Piece Title</th>
+      <th>Material</th>
+      <th>Inspiration</th>
+      <th>Deadline</th>
+      <th>Difficulty</th>
+      <th>Extra Thoughts</th>
+    </tr>
+  </table>
+
   <div class="tracker-wrapper">
     <div class="tracker-body">
       <main class="tracker-container">
@@ -17,57 +28,49 @@ export default () => html`
 
         <form
           id="art-tracker-form"
-          action=""
-          method="post"
+          action="http://localhost:4040/tracker-form"
+          method="POST"
           class="lexend-justify"
         >
           <div class="main-entry">
-            <div class="user-input-box">
-              <label for="Art Piece Title" class="lexend-justify"
-                >Art Piece Title:</label
-              >
+            <div class="user-input-box-tracker">
+              <label for="title" class="lexend-justify">Art Piece Title:</label>
               <input
                 type="text"
-                name="Art Piece Title"
-                id="Art Piece Title"
-                placeholder="Enter First Name"
+                name="title"
+                id="title"
+                placeholder="NightFall"
                 required
               />
 
-              <label for="Material" class="lexend-justify">Material:</label>
+              <label for="material" class="lexend-justify">Material:</label>
               <input
                 type="text"
-                name="Material"
-                id="Material"
-                placeholder="Enter Last Name"
+                name="material"
+                id="material"
+                placeholder="Markers"
                 required
               />
 
-              <label for="Inspiration" class="lexend-justify"
+              <label for="inspiration" class="lexend-justify"
                 >Inspiration:</label
               >
               <input
                 type="text"
-                name="Inspiration"
-                id="Inspiration"
-                placeholder="Example: emailme@email.com"
-                required
+                name="inspiration"
+                id="inspiration"
+                placeholder="A butterfly I saw"
               />
 
-              <label for="Deadline" class="lexend-justify">Deadline:</label>
-              <input
-                type="date"
-                name="Deadline"
-                id="Deadline"
-                placeholder=" Example: xxx-xxxx-xxxx"
-              />
+              <label for="deadline" class="lexend-justify">Deadline:</label>
+              <input type="date" name="deadline" id="deadline" />
 
-              <div class="drop-down">
-                <label for="Difficulty" class="lexend-justify"
+              <div class="drop-down-difficulty">
+                <label for="difficulty" class="lexend-justify"
                   >Difficulty Level:</label
                 >
-                <select name="Difficulty" id="Difficulty">
-                  <optgroup label="Difficulty">
+                <select name="difficulty" id="difficulty">
+                  <optgroup label="difficulty">
                     <option value="Easy">Super Easy</option>
                     <option value="Medium">Not Very Easy</option>
                     <option value="Hard">Hard</option>
@@ -75,22 +78,25 @@ export default () => html`
                 </select>
               </div>
               <div class="lexend-justify message">
-                <label for="Extra Thoughts" class="lexend-justify"
+                <label for="extra-thoughts" class="lexend-justify"
                   >Extra Thoughts:</label
                 >
                 <textarea
+                  autofocus="autofocus"
+                  maxlength="70"
                   name="extra-thoughts"
-                  id="Extra Thoughts"
+                  id="extra-thoughts"
                   placeholder="Some additional information..."
                   rows="10"
-                  cols="80"
+                  cols="70"
                 >
                 </textarea>
               </div>
-              <div class="lexend-justify form-submit-btn">
+              <div class="lexend-justify form-submit-btn-tracker">
                 <input
+                  name="submit"
                   type="submit"
-                  value="Submit"
+                  value="Submit Tracker"
                   id="submit-button"
                   class="lexend-justify"
                 />

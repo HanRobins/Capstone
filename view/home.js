@@ -34,7 +34,7 @@ export default state => html`
         <div class="mySlides fade">
           <div class="numbertext">3 / 3</div>
           <img src=${promptImg} style="width:100%" />
-          <div class="text">${state.prompt}</div>
+          <div class="text">${state.prompt[0]}</div>
         </div>
 
         <!-- Next and previous buttons -->

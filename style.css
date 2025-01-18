@@ -406,7 +406,7 @@ footer .help-button h6{
   margin-bottom: 20vh;
   /* margin: 0 28px; */
   border-radius: 10px;
-  box-shadow: inset -2px 2px 2px white;
+  box-shadow:  -2px 2px 2px rgb(56, 3, 3);
 }
 
 .heading-tracker{
@@ -442,78 +442,80 @@ footer .help-button h6{
 
 }
 
-.form-submit-btn input{
+.form-submit-btn-tracker input{
   font-family: "Lexend", serif;
   display: block;
   width: 100%;
   margin-top: 10px;
   font-size: 1.2rem;
-  font-weight: 300;
+  font-weight: 400;
   padding: 10px;
   border: none;
   border-radius: 3px;
   color: rgb(0, 0, 0);
   background: rgba(255, 255, 255, 0.7);
+  transition: all .3s ease-in;
 }
 
-.form-submit-btn input:hover{
+.form-submit-btn-tracker input:hover{
   background: rgb(0, 0, 0);
   color: rgb(255, 255, 255);
   text-shadow: 0 0 15px rgb(214, 102, 121);
 }
 
-.user-input-box label{
+.user-input-box-tracker label{
   width: 95%;
-  color: white;
+  color: rgb(0, 0, 0);
   font-size: 1.2rem;
   font-weight: 400;
   margin: 5px 0;
 
 }
 
-.user-input-box input{
+.user-input-box-tracker input{
   height: 40px;
   width: 100%;
   border-radius: 7px;
   outline: none;
-  border: 1px solid grey;
+  border: 2px solid rgb(31, 1, 1);
   padding: 0 10px;
 }
 
-.drop-down {
+.drop-down-difficulty {
 
   width: 100%;
   padding-bottom: 15px;
   padding-top: 2vh;
 
 }
-.drop-down select{
+.drop-down-difficulty select{
   width: 100%;
-  height: 3vh;
+  height: 4vh;
   font-size: 1rem;
   border-radius: 7px;
+  border: 2px solid rgb(31, 1, 1);
 }
 
-.message{
+.extra-thoughts{
   width: 100%;
 }
-.message textarea{
+.extra-thoughts textarea{
   width: 100%;
   border-radius: 7px;
-  border: solid 3px black;
+  border: solid 2px black;
 }
 
 @media(max-width: 600px){
-  .container{
-      min-width: 280px;
+  .tracker-container{
+      min-width: 100%;
   }
 
-  .user-input-box{
+  .user-input-box-tracker{
       margin-bottom: 12px;
       width: 100%;
   }
 
-  .user-input-box:nth-child(2n){
+  .user-input-box-tracker:nth-child(2n){
       justify-content: space-between;
   }
 
@@ -526,6 +528,10 @@ footer .help-button h6{
   .main-info::-webkit-scrollbar{
       width: 0;
   }
+}
+
+textarea{
+  resize: none;
 }
 /*#endregion*/
 
@@ -991,6 +997,16 @@ footer .help-button h6{
   padding: 2rem;
   text-wrap: wrap;
   text-align: center;
+  animation: jump 1s ease-in-out infinite;
+}
+
+@keyframes jump {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 /*!NEW SLIDE SHOW STARTS HERE*/
 
@@ -1206,6 +1222,7 @@ footer .help-button h6{
   justify-content: center;
   text-align: center;
   gap: 2rem;
+  margin-top: 2rem;
 }
 .grid-wrapper p{
   border: solid 5px var(--bg-color-2);

@@ -45,6 +45,10 @@ app.get("/status", (request, response) => {
   response.json({ message: "Service healthy" });
 });
 
+app.post("/tracker-form", (request, response) => {
+  console.log(request.body);
+  response.json({ message: "Tracker Working" });
+});
 // Tell the Express app to start listening
 // Let the humans know I am running and listening on 4040
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
