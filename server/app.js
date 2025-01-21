@@ -1,6 +1,7 @@
 // 'Import' the Express module instead of http
 import express from "express";
-
+import mongoose from "mongoose";
+import trackers from "./routers/trackers.js";
 import dotenv from "dotenv";
 // Load environment variables from .env file
 dotenv.config();
@@ -9,6 +10,14 @@ dotenv.config();
 const PORT = process.env.PORT || 4040;
 // Initialize the Express application
 const app = express();
+
+mongoose.connect(process.env.MONGODB);
+const db = mongoose.connection;
+db.on("error", console.error.bind(console, "Connection Error:"));
+db.once(
+  "open",
+  console.log.bind(console, "Successfully opened connection to Mongo!")
+);
 
 const logging = (request, response, next) => {
   console.log(
@@ -49,6 +58,8 @@ app.post("/tracker-form", (request, response) => {
   console.log(request.body);
   response.json({ message: "Tracker Working" });
 });
+
+app.use("/trackers", trackers);
 // Tell the Express app to start listening
 // Let the humans know I am running and listening on 4040
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));

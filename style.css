@@ -1214,6 +1214,7 @@ textarea{
 .info-grid{
   padding: 2rem;
   margin-bottom: 20rem;
+
 }
 .grid-wrapper{
   display:grid;
@@ -1246,5 +1247,12 @@ textarea{
   color: white;
   font-size: 2rem;
   text-decoration: underline;
+  line-height: 1;
+}
+.info-grid span{
+  cursor: pointer;
+  overflow-x: hidden;
+  margin-right: 10px;
+  display: inline-block;
 }
 /*#endregion*/

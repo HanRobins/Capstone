@@ -50,25 +50,9 @@ export default state => html`
       <span class="dot" onclick="currentSlide(2)"></span>
       <span class="dot" onclick="currentSlide(3)"></span>
     </div>
-    <!-- <section class="slide-container">
-      <div class="slide-wrapper">
-        <h3>PROMPT OF DAY</h3>
-        <h2>${state.prompt}</h2>
-        //I'm working on my slider I know its broken :D
-        <div class="slider">
-          <img id="slide-1" src="${promptImg2}" alt="img 1" />
-          <img id="slide-2" src="${promptImg2}" alt="img 2" />
-          <img id="slide-3" src="${promptImg}" alt="img 3" />
-        </div>
-        <div class="slider-nav">
-          <a href="#slide-1"></a>
-          <a href="#slide-2"></a>
-          <a href="#slide-3"></a>
-        </div>
-      </div>
-    </section> -->
+
     <section class="info-grid">
-      <h3>What We Do Here</h3>
+      <h3><span>What<span><span>We<span><span>Do<span><span>Here<span></h3>
       <div class="grid-wrapper">
         <p class="hidden">1</p>
         <p class="hidden">1</p>

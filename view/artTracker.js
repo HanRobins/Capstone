@@ -1,6 +1,6 @@
 import html from "html-literal";
 
-export default () => html`
+export default state => html`
   <div class="tracker-header">
     <h1 class="mogra-regular">
       UPRISE & <span class="mogra-regular">DESIGN</span>
@@ -9,15 +9,20 @@ export default () => html`
     <a id="hero-button" href="/artTracker" class="mogra-regular">INSPIRE</a>
   </div>
 
-  <table id="pizzas">
+  <table id="trackers">
     <tr>
-      <th>Art Piece Title</th>
+      <th>Title</th>
       <th>Material</th>
       <th>Inspiration</th>
       <th>Deadline</th>
       <th>Difficulty</th>
       <th>Extra Thoughts</th>
     </tr>
+    ${state.trackers
+      .map(tracker => {
+        return `<tr><td>${tracker.title}</td><td>${tracker.material}</td><td>${tracker.inspiration}</td><td>${tracker.deadline}</td><td>${tracker.difficulty}</td><td>${tracker.notes}</td></tr>`;
+      })
+      .join("")}
   </table>
 
   <div class="tracker-wrapper">
@@ -28,7 +33,7 @@ export default () => html`
 
         <form
           id="art-tracker-form"
-          action="http://localhost:4040/tracker-form"
+          action="http://localhost:4040/trackers"
           method="POST"
           class="lexend-justify"
         >
@@ -78,14 +83,14 @@ export default () => html`
                 </select>
               </div>
               <div class="lexend-justify message">
-                <label for="extra-thoughts" class="lexend-justify"
+                <label for="notes" class="lexend-justify"
                   >Extra Thoughts:</label
                 >
                 <textarea
                   autofocus="autofocus"
                   maxlength="70"
-                  name="extra-thoughts"
-                  id="extra-thoughts"
+                  name="notes"
+                  id="notes"
                   placeholder="Some additional information..."
                   rows="10"
                   cols="70"
