@@ -55,11 +55,6 @@ app.get("/status", (request, response) => {
   response.json({ message: "Service healthy" });
 });
 
-// app.post("/tracker-form", (request, response) => {
-//   console.log(request.body);
-//   response.json({ message: "Tracker Working" });
-// });
-
 app.use("/trackers", trackers);
 // app.use("/discussions", discussions);
 // Tell the Express app to start listening

@@ -7,7 +7,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 gsap.registerPlugin(ScrollTrigger,ScrollToPlugin);
-// import { showSlides } from "./slideShow";
+
 
 const router = new Navigo("/");
 
@@ -146,7 +146,7 @@ router.hooks({
           refreshSlider = setInterval(()=>{next.click()}, 5000);
         }
 
-
+        break;
 
       // ! Beginning of trackers axios call
       case "artTracker":
@@ -184,6 +184,7 @@ router.hooks({
               console.log("It puked", error);
             });
           });
+          break;
     }
   }});
 

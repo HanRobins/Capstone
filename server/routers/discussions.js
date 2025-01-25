@@ -7,9 +7,9 @@
 // //creating the post method for my tracker api
 // router.post("/", async (request, response) => {
 //   try {
-//     const newTracker = new Discussion(request.body);
+//     const newDiscussion = new Discussion(request.body);
 
-//     const data = await newTracker.save();
+//     const data = await newDiscussion.save();
 
 //     response.json(data);
 //   } catch (error) {
