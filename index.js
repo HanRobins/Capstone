@@ -21,7 +21,7 @@ function render(state = store.home) {
 }
 
 router.hooks({
-  before: (done, match) => {
+  before: async (done, match) => {
     const view = match?.data?.view ? camelCase(match.data.view) : "home";
 
     // Add a switch case statement to handle multiple routes
@@ -67,7 +67,7 @@ router.hooks({
       // Add a case for each view that needs data from an API
       case "artTracker":
 
-        axios
+        await axios
           .get(`${process.env.TRACKER_API_URL}/trackers`)
           .then(response => {
             // We need to store the response to the state, in the next step but in the meantime let's see what it looks like so that we know what to store from the response.
