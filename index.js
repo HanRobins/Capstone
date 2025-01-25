@@ -45,10 +45,25 @@ router.hooks({
           });
 
         // const timeline = gsap.timeline();
-        // timeline.from("container span", 1.5{
-        //   delay: .5
+        // timeline.from("info-grid span" ,1.5,{
+        //   delay: .5,
+        //   skewX: -10,
+        //   skew: 10,
+        //   stagger: .4,
+        //   y: 50,
+        //   x: -20,
+        //   opacity: 0
+
+        //   });
+
+        // gsap.timeline({
+        //   scrollTrigger:{
+        //     trigger:".info-grid span",
+        //     start: "top top",
+        //     scrub:1
+        //   }
         // })
-        // break;
+        break;
       // Add a case for each view that needs data from an API
       case "artTracker":
 
@@ -80,50 +95,59 @@ router.hooks({
 
     switch (view) {
       case "home":
-        let slideIndex = 1;
-        // Next/previous controls
-        function plusSlides(n) {
-          showSlides((slideIndex += n));
+      // ! TRYING NEW SLIDER CODE T-T
+        let list = document.querySelector('.slider .list');
+        let items = document.querySelectorAll('.slider .list .item');
+        let dots = document.querySelectorAll('.slider .dots li');
+        let prev = document.getElementById('prev');
+        let next = document.getElementById('next');
+
+        let active = 0;
+        let lengthItems = items.length - 1;
+
+        next.onclick = function(){
+          console.log("ive been clicked");
+          if(active + 1 > lengthItems){
+            active = 0;
+          } else {
+            active = active + 1;
+          }
+
+          reloadSlider();
         }
 
-        // Thumbnail image controls
-        function currentSlide() {
-          let dots = document.querySelectorAll(".dot");
-          dots.forEach((element, i) => {
-            dots.addEventListener("click", showSlides(slideIndex = i));
-          });
-          // showSlides((slideIndex = n));
+        prev.onclick = function(){
+          if(active - 1 < 0){
+            active = lengthItems;
+
+          }else{
+            active = active - 1;
+          }
+          reloadSlider();
         }
 
-        function showSlides(n) {
-          let i;
-          let slides = document.getElementsByClassName("mySlides");
-          let dots = document.getElementsByClassName("dot");
-          if (n > slides.length) {
-            slideIndex = 1;
-          }
-          if (n < 1) {
-            slideIndex = slides.length;
-          }
-          for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-          }
-          for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-          }
-          slides[slideIndex - 1].style.display = "block";
-          dots[slideIndex - 1].className += " active";
+        dots.forEach((li, key) => {
+           li.addEventListener('click', function(){
+            active = key;
+            reloadSlider();
+           })
+        })
+
+        let refreshSlider = setInterval(()=>{next.click()}, 5000);
+
+        function reloadSlider(){
+          let checkLeft = items[active].offsetLeft;
+          list.style.left = -checkLeft + 'px';
+
+          let lastActiveDot = document.querySelector('.slider .dots li.active');
+          lastActiveDot.classList.remove('active');
+          dots[active].classList.add('active');
+          clearInterval(refreshSlider);
+          refreshSlider = setInterval(()=>{next.click()}, 5000);
         }
 
 
-        showSlides(slideIndex);
 
-        let dots = document.querySelectorAll(".dot");
-        console.log(dots);
-        dots.forEach((element, i) => {
-          element.addEventListener("click", (element) => { showSlides(slideIndex + i) });
-          console.log("this happened too");
-        });
       // ! Beginning of trackers axios call
       case "artTracker":
         // Add an event handler for the submit button on the form
@@ -134,17 +158,6 @@ router.hooks({
           const inputList = event.target.elements;
           console.log("Input Element List", inputList);
 
-          // Create an empty array to hold the toppings
-          const difficulty = [];
-
-          // Iterate over the toppings array
-
-          for (let input of inputList.difficulty) {
-            // If the value of the checked attribute is true then add the value to the toppings array
-            if (input.checked) {
-              difficulty.push(input.value);
-            }
-          }
 
           // Create a request body object to send to the API
           const requestData = {

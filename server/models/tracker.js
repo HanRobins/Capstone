@@ -28,7 +28,7 @@ const trackerSchema = new mongoose.Schema({
   notes: {
     type: String,
     required: false,
-    validate: /^[A-Za-z0-9 ]*$/
+    validate: /^[A-Za-z0-9 _.,!"'/$]*$/
   }
 });
 

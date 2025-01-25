@@ -3,6 +3,7 @@ import express from "express";
 import mongoose from "mongoose";
 import trackers from "./routers/trackers.js";
 import dotenv from "dotenv";
+// import discussions from "./routers/discussions.js";
 // Load environment variables from .env file
 dotenv.config();
 
@@ -54,12 +55,13 @@ app.get("/status", (request, response) => {
   response.json({ message: "Service healthy" });
 });
 
-app.post("/tracker-form", (request, response) => {
-  console.log(request.body);
-  response.json({ message: "Tracker Working" });
-});
+// app.post("/tracker-form", (request, response) => {
+//   console.log(request.body);
+//   response.json({ message: "Tracker Working" });
+// });
 
 app.use("/trackers", trackers);
+// app.use("/discussions", discussions);
 // Tell the Express app to start listening
 // Let the humans know I am running and listening on 4040
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
