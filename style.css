@@ -61,7 +61,7 @@ body{
   position: relative;
   display: flex;
   flex-direction: column;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 .art-tracker-body{
   min-height: 100%;
@@ -71,6 +71,7 @@ body{
   position: relative;
   display: flex;
   flex-direction: column;
+
 }
 .home-body{
   min-height: 100vh;
@@ -78,7 +79,7 @@ body{
   /* background: linear-gradient(to bottom, var(--real-pink-2), var(--bg-color-1)); */
   scroll-behavior: smooth;
   position: relative;
-
+  overflow: hidden;
 }
 .contact-body{
     min-height: 100vh;
