@@ -6,30 +6,30 @@ export default state => html`
       <h1 class="mogra-regular">
         UPRISE & <span class="mogra-regular">DESIGN</span>
       </h1>
-      <h3>Get rid of art block now!</h3>
-      <a id="hero-button" href="/artTracker" class="mogra-regular">INSPIRE</a>
+      <h3>Start your art tracking journey!</h3>
+      <i class="fa-solid fa-angles-down"></i>
     </div>
     <div class="table-container">
       <main class="table">
         <section class="table-header">
-          <h1>Art Goals</h1>
+          <h1 class="mogra-regular">Art Goals</h1>
         </section>
-        <section class="table-body">
+        <section class="table-body trykker-regular">
           <table>
             <thead>
               <tr>
-                <th>Title</th>
-                <th>Material</th>
-                <th>Inspiration</th>
-                <th>Deadline</th>
-                <th>Difficulty</th>
-                <th>Extra Thoughts</th>
+                <th class="trykker-regular">Title</th>
+                <th class="trykker-regular">Material</th>
+                <th class="trykker-regular">Inspiration</th>
+                <th class="trykker-regular">Deadline</th>
+                <th class="trykker-regular">Difficulty</th>
+                <th class="trykker-regular">Extra Thoughts</th>
               </tr>
             </thead>
             <tbody>
               ${state.trackers
                 .map(tracker => {
-                  return `<tr><td>${tracker.title}</td><td>${tracker.material}</td><td>${tracker.inspiration}</td><td>${tracker.deadline}</td><td>${tracker.difficulty}</td><td>${tracker.notes}</td></tr>`;
+                  return `<tr><td>${tracker.title}</td><td>${tracker.material}</td><td>${tracker.inspiration}</td><td class="active">${tracker.deadline}</td><td>${tracker.difficulty}</td><td>${tracker.notes}</td></tr>`;
                 })
                 .join("")}
             </tbody>
@@ -40,18 +40,22 @@ export default state => html`
     <div class="tracker-wrapper">
       <div class="tracker-body">
         <main class="tracker-container">
-          <h1 class="heading-tracker mogra-regular">Uprise & Design</h1>
-          <h3 class="heading-tracker">Art Tracker</h3>
+          <h1 class="heading-tracker mogra-regular">
+            <i class="fa-regular fa-heart"></i>Uprise & Design<i
+              class="fa-regular fa-heart"
+            ></i>
+          </h1>
+          <h3 class="heading-tracker trykker-regular">Art Tracker</h3>
 
           <form
             id="art-tracker-form"
             action="http://localhost:4040/trackers"
             method="POST"
-            class="lexend-justify"
+            class="trykker-regular"
           >
             <div class="main-entry">
               <div class="user-input-box-tracker">
-                <label for="title" class="lexend-justify"
+                <label for="title" class="trykker-regular"
                   >Art Piece Title:</label
                 >
                 <input
@@ -62,7 +66,7 @@ export default state => html`
                   required
                 />
 
-                <label for="material" class="lexend-justify">Material:</label>
+                <label for="material" class="trykker-regular">Material:</label>
                 <input
                   type="text"
                   name="material"
@@ -71,7 +75,7 @@ export default state => html`
                   required
                 />
 
-                <label for="inspiration" class="lexend-justify"
+                <label for="inspiration" class="trykker-regular"
                   >Inspiration:</label
                 >
                 <input
@@ -81,11 +85,11 @@ export default state => html`
                   placeholder="A butterfly I saw"
                 />
 
-                <label for="deadline" class="lexend-justify">Deadline:</label>
+                <label for="deadline" class="trykker-regular">Deadline:</label>
                 <input type="date" name="deadline" id="deadline" />
 
                 <div class="drop-down-difficulty">
-                  <label for="difficulty" class="lexend-justify"
+                  <label for="difficulty" class="trykker-regular"
                     >Difficulty Level:</label
                   >
                   <select name="difficulty" id="difficulty">
@@ -96,8 +100,8 @@ export default state => html`
                     </optgroup>
                   </select>
                 </div>
-                <div class="lexend-justify message">
-                  <label for="notes" class="lexend-justify"
+                <div class="trykker-regular message">
+                  <label for="notes" class="trykker-regular"
                     >Extra Thoughts:</label
                   >
                   <textarea
@@ -105,19 +109,18 @@ export default state => html`
                     maxlength="70"
                     name="notes"
                     id="notes"
-                    placeholder="Some additional information..."
+                    placeholder="Character limit: 70"
                     rows="10"
                     cols="70"
-                  >
-                  </textarea>
+                  ></textarea>
                 </div>
-                <div class="lexend-justify form-submit-btn-tracker">
+                <div class="trykker-regular form-submit-btn-tracker">
                   <input
                     name="submit"
                     type="submit"
                     value="Submit Tracker"
                     id="submit-button"
-                    class="lexend-justify"
+                    class="trykker-regular"
                   />
                 </div>
               </div>

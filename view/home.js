@@ -2,6 +2,10 @@ import html from "html-literal";
 import HeroImg from "../GraveYard/HeroHeader.jpg";
 import promptImg from "../GraveYard/Prompt-BG.jpg";
 import promptImg2 from "../GraveYard/ImgSlider2.jpg";
+import promptImg3 from "../GraveYard/paint-splash.jpg";
+import promptImg4 from "../GraveYard/paint-hands.jpg";
+import promptImg5 from "../GraveYard/hands.jpg";
+import promptImg6 from "../GraveYard/fishy.jpg";
 // import promptImg3 from "../GraveYard/spray-paint.jpg";
 export default state => html`
   <div class="home-body">
@@ -13,9 +17,9 @@ export default state => html`
       <a id="hero-button" href="/artTracker" class="mogra-regular">INSPIRE</a>
     </section>
 
-    <h3 class="prompt-header">PROMPT OF DAY</h3>
+    <h3 class="prompt-header">PROMPT OF THE DAY</h3>
     <div class ="slide-container">
-    <h1>${state.prompt[0]}</h1>
+      <h1>${state.prompt[0]}</h1>
       <div class="slider">
 
         <div class="list">
@@ -24,17 +28,18 @@ export default state => html`
 
           </div>
           <div class="item">
-            <img src="${promptImg}">
+            <img src="${promptImg6}">
 
           </div>
           <div class="item">
-            <img src="${promptImg2}">
+            <img src="${promptImg3}">
 
           </div>
           <div class="item">
-            <img src="${promptImg}">
+            <img src="${promptImg4}">
 
           </div>
+
         </div>
 
       <!-- creating previous and after buttons -->
@@ -53,48 +58,46 @@ export default state => html`
 
       </div>
     </div>
-    <!-- Slideshow container -->
-    <!-- <div class="slideshow-wrapper">
-      <div class="slideshow-container">
-        <!-- Full-width images with number and caption text -->
-        <!--<div class="mySlides fade">
-          <div class="numbertext">1 / 3</div>
-          <img src=${promptImg2} style="width:100%" />
-          <div class="text">${state.prompt[0]}</div>
-        </div>
-
-        <div class="mySlides fade">
-          <div class="numbertext">2 / 3</div>
-          <img src=${promptImg2} style="width:100%" />
-          <div class="text">${state.prompt}</div>
-        </div>
-
-        <div class="mySlides fade">
-          <div class="numbertext">3 / 3</div>
-          <img src=${promptImg} style="width:100%" />
-          <div class="text">${state.prompt[0]}</div>
-        </div>
-
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-      </div>
-    </div>
-    <br />
-
-
-    <div style="text-align:center">
-      <span class="dot" onclick="currentSlide(1)"></span>
-      <span class="dot" onclick="currentSlide(2)"></span>
-      <span class="dot" onclick="currentSlide(3)"></span>
-    </div> -->
 
     <section class="info-grid">
-      <h3><span>What<span><span>We<span><span>Do<span><span>Here<span></h3>
+      <h3>What We Do Here</h3>
       <div class="grid-wrapper">
-        <p class="hidden">1</p>
-        <p class="hidden">1</p>
-        <p class="hidden">1</p>
-        <p class="hidden">1</p>
+        <div class="box">
+          <h2 class="mogra-regular">Inspiration</h2>
+          <p class="hidden">She did it knowing it was wrong —
+            knowing he wouldn't do as he promised, that her work was useless,
+            that he was going to kill again anyway.
+            I always felt a connection with you.
+            This could become a problem.</p>
+          <img scr="${promptImg}"></img>
+        </div>
+        <div class="box">
+          <h2 class="mogra-regular">Goals</h2>
+          <p class="hidden">She did it knowing it was wrong —
+            knowing he wouldn't do as he promised, that her work was useless,
+            that he was going to kill again anyway.
+            I always felt a connection with you.
+            This could become a problem.</p>
+          <img scr="${promptImg}"></img>
+        </div>
+        <div class="box">
+          <h2 class="mogra-regular">Discuss</h2>
+          <p class="hidden">She did it knowing it was wrong —
+            knowing he wouldn't do as he promised, that her work was useless,
+            that he was going to kill again anyway.
+            I always felt a connection with you.
+            This could become a problem.</p>
+          <img scr="${promptImg}"></img>
+        </div>
+        <div class="box">
+          <h2 class="mogra-regular">Values</h2>
+          <p class="hidden">She did it knowing it was wrong —
+            knowing he wouldn't do as he promised, that her work was useless,
+            that he was going to kill again anyway.
+            I always felt a connection with you.
+            This could become a problem.</p>
+          <img scr="${promptImg}"></img>
+        </div>
       </div>
     </section>
     <div class="ending-text">
