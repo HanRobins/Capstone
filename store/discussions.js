@@ -1,4 +1,5 @@
 export default {
   header: "discussions page",
-  view: "discussions"
+  view: "discussions",
+  discussions: []
 };

@@ -16,7 +16,11 @@
   font-style: normal;
 }
 
-
+.trykker-regular {
+  font-family: "Trykker", serif;
+  font-weight: 400;
+  font-style: normal;
+}
 
 
 
@@ -35,6 +39,7 @@
   --real-pink-2:#eb8ba2;
   --bg-color-1: rgb(235, 191, 155);
   --bg-color-2: rgb(240, 162, 111);
+  --text-color-1: rgb(48, 2, 2);
 }
 
 /*#endregion*/
@@ -61,25 +66,39 @@ body{
   position: relative;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
-.art-tracker-body{
+.about-body{
   min-height: 100%;
-  width: 100%;
-  background: linear-gradient(to bottom, var(--real-pink-2), var(--bg-color-1));
+  background: linear-gradient(to bottom, rgb(250, 240, 235), #F4F5F7);
   scroll-behavior: smooth;
   position: relative;
   display: flex;
   flex-direction: column;
+}
+.art-tracker-body{
+  min-height: 100%;
+  width: 100%;
+  background-color: #F4F5F7;
+  background-repeat: space;
+  background-size: contain;
+  background-attachment: fixed;
+  background-position: right;
 
+  background-image: url(GraveYard/flowers-tracker.jpg);
+  scroll-behavior: smooth;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
 }
 .home-body{
   min-height: 100vh;
-  background-color: var(--bg-color-1);
+  background-color: rgb(250, 240, 235);
   /* background: linear-gradient(to bottom, var(--real-pink-2), var(--bg-color-1)); */
   scroll-behavior: smooth;
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 .contact-body{
     min-height: 100vh;
@@ -353,9 +372,7 @@ footer .help-button h6{
 /*#endregion*/
 
 /*#region ArtTracker */
-/* html {
-  overflow-x: initial !important;
-} */
+
 /* ! Hear begins Table data */
 .table-container{
   display: flex;
@@ -372,17 +389,19 @@ main.table {
   box-shadow: 0 .4rem .8rem #0005;
   border-radius: .8rem;
   overflow: hidden;
+  backdrop-filter: blur(2px);
 }
 
 .table-header{
   width: 100%;
   height: 10%;
-  background-color: #fff4;
+  background-color: rgba(255, 248, 248, 0.894);
   padding: .8rem 1rem;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: var(--text-color-1);
+
 }
 
 .table-header .input-group{
@@ -398,6 +417,7 @@ table{
   margin: .8rem auto;
   border-radius: .6rem;
   overflow: auto;
+
 }
 
 .table-body::-webkit-scrollbar{
@@ -420,9 +440,13 @@ table, th, td{
   border-collapse: collapse;
   text-align: left;
 }
-
+thead tr th{
+  font-weight: 800;
+  font-size: 1.2rem;
+}
 thead th{
-
+  font-weight: 700;
+  color: var(--text-color-1);
   top: 0;
   left: 0;
   background-color: rgba(182, 182, 182, 0.164);
@@ -439,6 +463,7 @@ tbody tr:hover {
 tbody tr {
   --delay: .1s;
   transition: .5s ease-in-out var(--delay), background-color 0s;
+  color: var(--text-color-1);
 }
 
 tbody tr.hide {
@@ -455,7 +480,8 @@ tbody tr.hide {
 .tracker-header{
   background-image: url(GraveYard/tracker-bg.jpg);
   background-size: cover;
-  border-bottom: solid 20px black;
+  box-shadow: 0px 5px 10px hsla(0, 100%, 4%, 0.252);
+  border-bottom: solid 2px rgb(255, 255, 255);
   height: 80vh;
   display: flex;
   flex-direction: column;
@@ -464,28 +490,38 @@ tbody tr.hide {
   text-align: center;
 }
 
-.tracker-header a{
+
+
+
+
+.tracker-header i{
   align-items: center;
-  color: #4f000b;
+  color: #ffffff;
+  text-shadow: 0 0 30px var(--real-pink-2);
   text-decoration: none;
-  background-color: aliceblue;
-  font-size: 2rem;
-  padding: 1rem;
+  /* background-color: aliceblue; */
+  font-size: 3.5rem;
+  padding: 1rem 3rem;
   border-radius: 10px;
-  border: solid 2px black;
+  /* border: solid 2px aliceblue; */
   transition: 0.3s linear;
+  animation: jump 1s ease-in-out infinite;
+  margin-top: 2rem;
 }
 
-.tracker-header a:hover{
-  text-shadow: 0 0 30px var(--real-pink-2);
+.tracker-header i:hover{
+  text-shadow: 0 0 30px rgb(143, 182, 216);
   color: white;
-  background-color: black;
+  font-size: 4rem;
+  border: solid 2px aliceblue;
+  cursor: pointer;
+
 }
 
 
 .tracker-header h1{
   text-decoration: none;
-  color: aliceblue;
+  color: rgb(255, 255, 255);
   font-size: 4rem;
   padding-top: 6rem;
   text-wrap: wrap;
@@ -494,6 +530,7 @@ tbody tr.hide {
 }
 
 .tracker-header h3{
+  text-shadow: 0 0 20px var(--real-pink-2);
   text-decoration: none;
   color: rgb(255, 255, 255);
   font-size: 2.5rem;
@@ -502,7 +539,14 @@ tbody tr.hide {
   text-align: center;
 }
 
-
+@media (max-width: 380){
+  .tracker-header i{
+    margin-top: 0;
+  }
+  .tracker-header h3{
+    padding: .2rem;
+  }
+}
 /*form begins*/
 .tracker-body{
   display: flex;
@@ -512,7 +556,8 @@ tbody tr.hide {
 
   width: 100%;
   max-width: 60%;
-  background: rgb(255, 255, 255);
+  background: rgba(255, 255, 255, 0.911);
+  backdrop-filter: blur(5px);
   padding: 28px;
   margin-top: 20vh;
   margin-bottom: 20vh;
@@ -526,10 +571,10 @@ tbody tr.hide {
   font-weight: 500;
   text-align: center;
   padding-bottom: 6px;
-  color: rgb(0, 0, 0);
+  color: var(--text-color-1);
   margin: 0 28px;
 
-  border-bottom: solid 2px rgb(0, 0, 0);
+  border-bottom: solid 2px var(--text-color-1);;
 
 }
 
@@ -577,11 +622,11 @@ tbody tr.hide {
 
 .user-input-box-tracker label{
   width: 95%;
-  color: rgb(0, 0, 0);
+  color: var(--text-color-1);
   font-size: 1.2rem;
-  font-weight: 400;
-  margin: 5px 0;
-
+  font-weight: 300;
+  margin: 5px 0px;
+  padding-bottom: 40px;
 }
 
 .user-input-box-tracker input{
@@ -589,7 +634,7 @@ tbody tr.hide {
   width: 100%;
   border-radius: 7px;
   outline: none;
-  border: 2px solid rgb(31, 1, 1);
+  border: 2px solid var(--text-color-1);;
   padding: 0 10px;
 }
 
@@ -614,7 +659,7 @@ tbody tr.hide {
 .extra-thoughts textarea{
   width: 100%;
   border-radius: 7px;
-  border: solid 2px black;
+  border: solid 2px var(--text-color-1);;
 }
 
 @media(max-width: 600px){
@@ -653,7 +698,7 @@ textarea{
 
   width: 100%;
   max-width: 650px;
-  background: rgba(105, 2, 59, 0.258);
+  background: rgba(255, 246, 246, 0.397);
   padding: 28px;
   margin-top: 20vh;
   margin-bottom: 20vh;
@@ -667,11 +712,20 @@ textarea{
   font-weight: 500;
   text-align: center;
   padding-bottom: 6px;
-  color: aliceblue;
+  color: var(--text-color-1);
   margin: 0 28px;
 
   border-bottom: solid 2px white;
 
+}
+
+::placeholder {
+  color: var(--text-color-1);
+  opacity: .60; /* Firefox */
+}
+
+::-ms-input-placeholder { /* Edge 12 -18 */
+  color: var(--text-color-1);
 }
 
 .main-info{
@@ -717,7 +771,7 @@ textarea{
 
 .user-input-box label{
   width: 95%;
-  color: white;
+  color: var(--text-color-1);
   font-size: 1.2rem;
   font-weight: 400;
   margin: 5px 0;
@@ -802,7 +856,6 @@ textarea{
     margin-top: 10vh;
     display: flex;
     justify-content: center;
-
   }
   .about-right{
     margin-bottom: 30vh;
@@ -836,6 +889,7 @@ textarea{
     display: flex;
     justify-content: center;
     margin-bottom: 60%;
+
   }
 
 }
@@ -853,20 +907,20 @@ textarea{
   -moz-box-shadow: 0px 0px 18px -1px rgba(0, 0, 0, 0.39);
 }
 .about-left-content > div{
-  background-color: black;
+  background-color: rgb(255, 244, 234);
   padding: 4rem 4rem 2.5rem 5rem;
   text-align: center;
 }
 .about-left-content h2{
-  color: white;
+  color: var(--text-color-1);
   font-size: 2rem;
   margin: 2.2rem 0 0.6rem 0;
   line-height: 1.2;
   padding-bottom: 1rem;
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid var(--text-color-1);
 }
 .about-left-content h3{
-  color:white;
+  color: var(--text-color-1);
   text-transform: uppercase;
   font-weight: 300;
   letter-spacing: 5px;
@@ -874,7 +928,7 @@ textarea{
 }
 
 .social-links{
-  background: rgb(0, 0, 0);
+  background: rgb(255, 255, 255);
   display: flex;
   justify-content: center;
   padding: 0.8rem 0;
@@ -888,26 +942,27 @@ textarea{
   justify-content: center;
   align-items: center;
   background-color: transparent;
-  border: 0.2rem solid rgb(235, 171, 224);
+  border: 0.2rem solid pink;
   border-radius: 50%;
-  color:rgb(233, 78, 181);
+  color:pink;
   font-size: 1.3rem;
   cursor: pointer;
   transition: 0.2s ease-in-out;
 }
 .social-links li i{
-  color: rgb(233, 78, 181);
+  color: pink;
   transition: 0.2s ease-in-out;
 }
 .social-links li i:hover{
   color: rgb(255, 255, 255);
+  filter: drop-shadow(0 0 10px white);
   transition: 0.2s ease-in-out;
 }
 .social-links li:hover{
   scale: 1.3;
   color: white;
-  background-color: rgb(209, 146, 238);
-  filter: drop-shadow(0 0 10px rgb(236, 75, 241));
+  background-color: rgb(242, 148, 163);
+  filter: drop-shadow(0 0 10px white);
 }
 
 .about-img{
@@ -934,7 +989,7 @@ textarea{
 .shadow::after{
   content:"";
   position: absolute;
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(33, 1, 1, 0.288);
   left: 37%;
   bottom: -20px;
   height: 7px;
@@ -953,6 +1008,7 @@ textarea{
   opacity: 1;
 }
 .about-right{
+  margin: 3rem;
   background: white;
   height: 100vh;
   display: flex;
@@ -963,6 +1019,7 @@ textarea{
   text-align: center;
 }
 .about-right h1{
+  color: var(--text-color-1);
   font-size: 7rem;
   text-transform: uppercase;
 }
@@ -971,6 +1028,7 @@ textarea{
   text-shadow: 0 0 20px var(--real-pink);
 }
 .about-right h2{
+  color: var(--text-color-1);
   font-size: 2rem;
   font-weight: 400;
   letter-spacing: 3px;
@@ -1014,13 +1072,11 @@ textarea{
   color: aliceblue;
 }
 .about-para p{
-
+  color: var(--text-color-1);
   padding: 0.5rem;
   opacity: 0.8;
   font-weight: 500;
-
-  font-size: 1.3rem;
-
+  font-size: 1.4rem;
 }
 
 @media screen and (min-width: 1278px){
@@ -1042,14 +1098,43 @@ textarea{
 
 .gallery{
   text-align: center;
-  /* margin-bottom: 20%; */
-  text-decoration: underline;
+  max-width: 1800px;
+  width: 90%;
+  margin: auto;
+  padding: 50px 0;
+  margin-bottom: 10rem;
 }
+
 .gallery h1{
   font-size: 3rem;
-  color: rgb(0, 0, 0);
+  color: var(--text-color-1);
+  margin-bottom: 2rem;
+  text-decoration: underline;
+}
 
+.my-art{
+  display: flex;
+  gap: 20px;
 
+}
+
+.column{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.art-photo img{
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0px 0px 0px 2px rgba(19, 0, 0, 0.216);
+}
+
+@media(max-width: 768px){
+  .my-art{
+    flex-direction: column;
+  }
 }
 /*#endregion*/
 
@@ -1059,7 +1144,8 @@ textarea{
 
   background-image: url(GraveYard/HeroHeader.jpg);
   background-size: cover;
-  border-bottom: solid 20px black;
+  box-shadow: 0px 5px 10px hsla(0, 100%, 4%, 0.252);
+  border-bottom: solid 2px rgb(255, 255, 255);
   height: 80vh;
   display: flex;
   flex-direction: column;
@@ -1112,22 +1198,20 @@ textarea{
   animation: jump 1s ease-in-out infinite;
 }
 
-@keyframes jump {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
 /*!New New Slide Show*/
 .prompt-header{
-  font-weight: 500;
+  font-weight: 600;
   font-size: 3rem;
   text-align: center;
   margin-top: 2rem;
   margin-bottom: 2rem;
+  color: #fff;
+  text-shadow:
+    2px 2px 0 var(--text-color-1),
+    -2px 2px 0 var(--text-color-1),
+    -2px -2px 0 var(--text-color-1),
+    2px -2px 0 var(--text-color-1);
+  /* text-shadow: 10px 10px 10px red; */
 }
 
 .slide-container{
@@ -1139,6 +1223,7 @@ textarea{
   align-items: center;
   flex-direction: column;
   position: relative;
+
 }
 
 .slide-container h1{
@@ -1146,7 +1231,12 @@ textarea{
   top: 25%;
   text-align: center;
   z-index: 2;
-  font-size:
+  text-wrap: wrap;
+  font-size: 4rem;
+  padding: 10px 20px;
+  background-color: rgba(255, 255, 255, 0.498);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
 }
 
 .slider{
@@ -1156,6 +1246,8 @@ textarea{
   margin: auto;
   position: relative;
   overflow: hidden;
+  border-radius: 30px;
+  border: solid 3px rgba(23, 1, 1, 0.403)
 }
 
 .list{
@@ -1231,215 +1323,49 @@ textarea{
   .slider{
     height: 400px;
   }
-}
-/*!NEW SLIDE SHOW STARTS HERE*/
-
-/* .prompt-header{
-  font-weight: 500;
-  font-size: 3rem;
-  text-align: center;
-}
-
-/* Slideshow container
-.slideshow-container {
-
-
-  box-shadow: 0px 10px 10px hsla(0, 0%, 0%, 0.25);
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
-}
-.slideshow-wrapper{
-  padding:2rem;
-  padding-bottom: 5rem;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url(GraveYard/bg-prompt.jpg);
-  border-radius: 10px;
-  box-shadow: 0px 10px 10px hsla(0, 0%, 0%, 0.25);
-}
-/* Hide the images by default
-.mySlides {
-  display: none;
-  border-radius: 10px;
-
-
-}
-
-.mySlides img{
-  border-radius: 10px;
-}
-/* Next & previous buttons
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  margin-top: -22px;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-}
-
-/* Position the "next button" to the right
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-}
-
-/* Caption text
-.text {
-  color: #f2f2f2;
-  font-weight: 500;
-  font-size: 4rem;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 60%;
-  width: 100%;
-  text-align: center;
-}
-
-/* Number text (1/3 etc)
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
-/* The dots/bullets/indicators
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-
-.active, .dot:hover {
-  background-color: #717171;
-}
-
-/* Fading animation
-.fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
-} */
-
-/*!OLD CODE HERE*/
-/* .slide-container{
-  padding:2rem;
-  padding-bottom: 5rem;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url(GraveYard/bg-prompt.jpg);
-
-  box-shadow: 0px 10px 10px hsla(0, 0%, 0%, 0.25);
-}
-.slide-wrapper{
-
-  text-align: center;
-  position: relative;
-  max-width: 70rem;
-  margin:0 auto;
-  filter: none;
-}
-@media(max-width: 550px){
-  .slide-container{
-    padding:0;
-    padding-bottom: 5rem;
-  }
-  .hero-header h3{
-
-    padding: 0rem;
-
-  }
-  .hero-header h1{
-   margin: 0;
-  }
-  .hero-header a{
-    padding: 1rem;
+  .slider-container h1{
+    font-size: 1rem;
   }
 }
-.slider{
-  filter: none;
-  display: flex;
-  aspect-ratio: 16/9;
-  overflow-x: hidden;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
-  border-radius: 0.5rem;
-}
 
-.slider img{
-  flex: 1 0 100%;
-  scroll-snap-align: start;
-  object-fit: cover;
-}
-
-.slider-nav{
-  position: absolute;
-  display: flex;
-  column-gap: 1rem;
-  bottom: 1.25rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
-}
-
-.slider-nav a{
-  width: 0.7rem;
-  height: 0.7rem;
-  border-radius: 50%;
-  background-color: black;
-  opacity: 0.75;
-  transition: opacity ease 250ms;
-}
-
-.slider-nav a:hover{
-  opacity: 100%;
-}
-
-.slide-wrapper h3{
-  color: white;
-  font-size: 3rem;
-  text-decoration: underline;
-}
-
-.slide-wrapper h2{
-  color: white;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-size: 3rem;
-  text-decoration: underline;
-  align-items: center;
-  justify-content: center;
-} */
-
+/* ! OLD GRID CODE */
 .info-grid{
   padding: 2rem;
-  margin-bottom: 20rem;
+  margin-bottom: 10rem;
+  width: 90%;
+  margin-inline: auto;
 
 }
+.info-grid h3{
+  white-space: nowrap;
+  overflow: hidden;
+  color: black;
+  animation: animate-bar 13s linear forwards infinite;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  background-color: white;
+  border-radius: 5px;
+  text-align: center;
+  color: rgb(48, 2, 2);
+  font-size: 2rem;
+  text-decoration: underline;
+  line-height: 1;
+}
+
+@keyframes animate-bar {
+  0% {
+    width: 0px;
+    color: #ffffff00;
+  }
+  20% {
+    width: 100%;
+    color:  rgb(48, 2, 2);
+  }
+  100% {
+    width: 100%;
+  }
+}
+
 .grid-wrapper{
   display:grid;
   justify-content: space-around;
@@ -1448,35 +1374,71 @@ textarea{
   text-align: center;
   gap: 2rem;
   margin-top: 2rem;
+  background-size: cover;
+
 }
-.grid-wrapper p{
-  border: solid 5px var(--bg-color-2);
+.grid-wrapper .box{
+  box-shadow: 0px 0px 0px 10px rgba(19, 0, 0, 0.216);
+  border: solid 5px white;
   height: 500px;
   border-radius: 10px;
-  background-color: rgb(255, 255, 255);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(GraveYard/grid-bg-2.jpg);
 }
 
-.grid-wrapper .hidden-para{
-  opacity: .30;
-  transition: all 5s;
-}
-.grid-wrapper .show-para{
-  opacity: 1;
-}
-.info-grid h3{
-  padding-bottom: 1rem;
-  padding-top: 1rem;
-  background-color: var(--bg-color-2);
-  text-align: center;
-  color: white;
+.grid-wrapper .box h2{
   font-size: 2rem;
-  text-decoration: underline;
-  line-height: 1;
+  background-color: #ffffffdb;
+  margin: 10px 5px;
+  padding-top: 5px;
+  border-radius: 3px;
+  color:rgb(48, 2, 2);
 }
-.info-grid span{
-  cursor: pointer;
-  overflow-x: hidden;
-  margin-right: 10px;
-  display: inline-block;
+
+.grid-wrapper .box p{
+  background-color: #ffffff62;
+  backdrop-filter: blur(5px);
+  height: 420px;
+  margin: 5px 5px;
+  border-radius: 3px;
+  padding-top: 20px;
+  font-family: "Trykker", serif;
+  font-weight: 500;
+  font-size: 1.2rem;
+  color:rgb(48, 2, 2);
+  line-height: 1.7rem;
+}
+.ending-text{
+  margin-bottom: 3rem;
+}
+.ending-text h1{
+  color: rgb(48, 2, 2);
+  padding: 50px;
+  text-align: center;
+  animation: jump 1s ease-in-out infinite;
+}
+
+@keyframes jump {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@media (max-width: 685px){
+  .slide-container h1{
+    font-size: 2rem;
+  }
+  .info-grid h3{
+    font-size: 1.5rem;
+  }
+}
+@media (max-height: 725px){
+  .hero-header h3{
+    padding: 1rem;
+  }
 }
 /*#endregion*/

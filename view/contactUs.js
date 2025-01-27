@@ -67,8 +67,7 @@ export default () => html`
                 placeholder="I contacted you for..."
                 rows="10"
                 cols="80"
-              >
-              </textarea>
+              ></textarea>
             </div>
             <div class="lexend-justify form-submit-btn">
               <input
