@@ -64,38 +64,37 @@ export default state => html`
       <div class="grid-wrapper">
         <div class="box">
           <h2 class="mogra-regular">Inspiration</h2>
-          <p class="hidden">She did it knowing it was wrong —
-            knowing he wouldn't do as he promised, that her work was useless,
-            that he was going to kill again anyway.
-            I always felt a connection with you.
-            This could become a problem.</p>
+          <p class="hidden">What inspired us to make this website is this website
+            is the pain of an artist we have all experienced. Art block has plagued
+            our community for years and our goal is to subside it! I recently met a
+            group of artists that inspired me to do better and work harder. My hope
+            is that everyone on this application could find that too!</p>
           <img scr="${promptImg}"></img>
         </div>
         <div class="box">
           <h2 class="mogra-regular">Goals</h2>
-          <p class="hidden">She did it knowing it was wrong —
-            knowing he wouldn't do as he promised, that her work was useless,
-            that he was going to kill again anyway.
-            I always felt a connection with you.
-            This could become a problem.</p>
+          <p class="hidden">The goal of Uprise and Design is to assist artists
+            on their life long journey of improvement. We provide prompts and
+            encourage artists to keep going! Allowing artists to track themselves
+            and discuss with other designers will help our community grow as a whole!</p>
           <img scr="${promptImg}"></img>
         </div>
         <div class="box">
           <h2 class="mogra-regular">Discuss</h2>
-          <p class="hidden">She did it knowing it was wrong —
-            knowing he wouldn't do as he promised, that her work was useless,
-            that he was going to kill again anyway.
-            I always felt a connection with you.
-            This could become a problem.</p>
+          <p class="hidden">Our goal is to uprise our community!
+            NOT tear it down! When using our discussion posts please be kind.
+            Yes constructive criticism is needed to improve; however, be kind
+            when providing advice! Let's all grow in positive ways!</p>
           <img scr="${promptImg}"></img>
         </div>
         <div class="box">
           <h2 class="mogra-regular">Values</h2>
-          <p class="hidden">She did it knowing it was wrong —
-            knowing he wouldn't do as he promised, that her work was useless,
-            that he was going to kill again anyway.
-            I always felt a connection with you.
-            This could become a problem.</p>
+          <p class="hidden">What we value at Uprise and Design is the people.
+            Not A.i! We have nothing against artificial intelligence but,
+            when it comes to art we have our values. This is an A.i art free community.
+            We want our artists to learn off of other artists. Not off of a robot
+            that has no real creativity! Let's create REAL relationships and REAL art together.
+            Thank you!</p>
           <img scr="${promptImg}"></img>
         </div>
       </div>

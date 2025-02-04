@@ -12,6 +12,7 @@ gsap.registerPlugin(ScrollTrigger,ScrollToPlugin);
 const router = new Navigo("/");
 
 function render(state = store.home) {
+  console.log(state);
   document.querySelector("#root").innerHTML = `
       ${nav(store.nav)}
       ${main(state)}
@@ -44,25 +45,7 @@ router.hooks({
             done();
           });
 
-        // const timeline = gsap.timeline();
-        // timeline.from("info-grid span" ,1.5,{
-        //   delay: .5,
-        //   skewX: -10,
-        //   skew: 10,
-        //   stagger: .4,
-        //   y: 50,
-        //   x: -20,
-        //   opacity: 0
 
-        //   });
-
-        // gsap.timeline({
-        //   scrollTrigger:{
-        //     trigger:".info-grid span",
-        //     start: "top top",
-        //     scrub:1
-        //   }
-        // })
         break;
       // Add a case for each view that needs data from an API
       case "artTracker":
@@ -81,6 +64,41 @@ router.hooks({
             done();
           });
         break;
+
+      case "discussions":
+
+      await axios
+        .get(`${process.env.TRACKER_API_URL}/discussions`)
+        .then(response => {
+          // We need to store the response to the state, in the next step but in the meantime let's see what it looks like so that we know what to store from the response.
+          // console.log("response", store.tracker.trackers);
+          store.discussions.discussions = response.data;
+          console.log("response", store.discussions.discussions);
+          done();
+        })
+        .catch((error) => {
+          console.log("It puked", error);
+          done();
+        });
+      break;
+
+      case "discussion":
+        // console.log(match.data);
+      await axios
+        .get(`${process.env.TRACKER_API_URL}/discussions/${match.params.id}`)
+        .then(response => {
+          // We need to store the response to the state, in the next step but in the meantime let's see what it looks like so that we know what to store from the response.
+          // console.log("response", store.tracker.trackers);
+          store.discussion.discussion = response.data;
+          console.log("response", store.discussion.discussion);
+          done();
+        })
+        .catch((error) => {
+          console.log("It puked", error);
+          done();
+        });
+      break;
+
       default:
         done();
     }
@@ -178,6 +196,77 @@ router.hooks({
             //  Then push the new pizza onto the Pizza state pizzas attribute, so it can be displayed in the pizza list
               store.artTracker.trackers.push(response.data);
               router.navigate("/artTracker");
+            })
+            // If there is an error log it to the console
+            .catch(error => {
+              console.log("It puked", error);
+            });
+          });
+          break;
+
+      case "discussions":
+        // Add an event handler for the submit button on the form
+        document.querySelector("#discussion-form").addEventListener("submit", event => {
+          event.preventDefault();
+
+          // Get the form element
+          const inputList = event.target.elements;
+          console.log("Input Element List", inputList);
+
+
+          // Create a request body object to send to the API
+          const requestData = {
+            username: inputList.username.value,
+            title: inputList.title.value,
+            message: inputList.message.value
+          };
+          // Log the request body to the console
+          console.log("request Body", requestData);
+
+          axios
+            // Make a POST request to the API to create a new pizza
+            .post(`${process.env.TRACKER_API_URL}/discussions`, requestData)
+            .then(response => {
+            //  Then push the new pizza onto the Pizza state pizzas attribute, so it can be displayed in the pizza list
+              store.discussions.discussions.push(response.data);
+              router.navigate("/discussions");
+            })
+            // If there is an error log it to the console
+            .catch(error => {
+              console.log("It puked", error);
+            });
+          });
+          break;
+      case "discussion":
+        // Add an event handler for the submit button on the form
+        document.querySelector("#reply-form").addEventListener("submit", event => {
+          event.preventDefault();
+
+          // Get the form element
+          const inputList = event.target.elements;
+          console.log("Input Element List", inputList);
+
+
+          // Create a request body object to send to the API
+          // const requestData = {
+          //   // username: inputList.username.value,
+          //   // title: inputList.title.value,
+          //   // message: inputList.message.value,
+          //   replies: {username: inputList.username.value, response: inputList.response.value}
+          // };
+
+          store.discussion.discussion.replies.push({username: inputList.username.value, response: inputList.response.value});
+
+          // Log the request body to the console
+          console.log("request Body", store.discussion.discussion);
+
+          axios
+            // Make a POST request to the API to create a new pizza
+            .put(`${process.env.TRACKER_API_URL}/discussions/${match.params.id}`, store.discussion.discussion)
+            .then(response => {
+            //  Then push the new pizza onto the Pizza state pizzas attribute, so it can be displayed in the pizza list
+              store.discussions.discussions.push(response.data);
+              router.navigate(`/discussion?id=${response.data._id}`);
             })
             // If there is an error log it to the console
             .catch(error => {

@@ -4,7 +4,7 @@ import reply from "./reply.js";
 const discussionSchema = new mongoose.Schema({
   username: {
     type: String,
-    required: false,
+    required: true,
     validate: /^[A-Za-z0-9 ]*$/
   },
   title: {
@@ -14,8 +14,8 @@ const discussionSchema = new mongoose.Schema({
   },
   message: {
     type: String,
-    required: false,
-    validate: /^[A-Za-z0-9 ]*$/
+    required: true,
+    validate: /^[A-Za-z0-9 _.,!"'/$]*$/
   },
   replies: [reply.schema]
 });
