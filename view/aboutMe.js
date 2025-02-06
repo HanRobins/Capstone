@@ -1,19 +1,19 @@
 import html from "html-literal";
 import selfImg from "../GraveYard/Image-Self.jpg";
-import ArtImg1 from "../GraveYard/ArtGallery/Art-Img-1.png";
-import ArtImg2 from "../GraveYard/ArtGallery/Art-Img-2.jpg";
-import ArtImg3 from "../GraveYard/ArtGallery/Art-Img-3.jpg";
-import ArtImg4 from "../GraveYard/ArtGallery/Art-Img-4.jpg";
-import ArtImg5 from "../GraveYard/ArtGallery/Art-Img-5.jpg";
-import ArtImg6 from "../GraveYard/ArtGallery/Art-Img-6.jpg";
-import ArtImg7 from "../GraveYard/ArtGallery/Art-Img-7.png";
-import ArtImg8 from "../GraveYard/ArtGallery/Art-Img-8.png";
-import ArtImg9 from "../GraveYard/ArtGallery/Art-Img-9.jpg";
-import ArtImg10 from "../GraveYard/ArtGallery/Art-Img-10.png";
-import ArtImg11 from "../GraveYard/ArtGallery/Art-Img-11.png";
-import ArtImg12 from "../GraveYard/ArtGallery/Art-Img-12.png";
-import ArtImg13 from "../GraveYard/ArtGallery/Art-Img-13.png";
-import ArtImg14 from "../GraveYard/ArtGallery/Art-Img-14.png";
+import ArtImg1 from "../GraveYard/ArtGallery/Art-img-1.png";
+import ArtImg2 from "../GraveYard/ArtGallery/Art-img-2.jpg";
+import ArtImg3 from "../GraveYard/ArtGallery/Art-img-3.jpg";
+import ArtImg4 from "../GraveYard/ArtGallery/Art-img-4.jpg";
+import ArtImg5 from "../GraveYard/ArtGallery/Art-img-5.jpg";
+import ArtImg6 from "../GraveYard/ArtGallery/Art-img-6.jpg";
+import ArtImg7 from "../GraveYard/ArtGallery/Art-img-7.png";
+import ArtImg8 from "../GraveYard/ArtGallery/Art-img-8.png";
+import ArtImg9 from "../GraveYard/ArtGallery/Art-img-9.jpg";
+import ArtImg10 from "../GraveYard/ArtGallery/Art-img-10.png";
+import ArtImg11 from "../GraveYard/ArtGallery/Art-img-11.png";
+import ArtImg12 from "../GraveYard/ArtGallery/Art-img-12.png";
+import ArtImg13 from "../GraveYard/ArtGallery/Art-img-13.png";
+import ArtImg14 from "../GraveYard/ArtGallery/Art-img-14.png";
 
 export default () => html`
   <div class="about-body">
